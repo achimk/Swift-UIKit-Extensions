@@ -24,20 +24,20 @@ extension UIViewController {
     
         if fromVC != toVC, let fromVC = fromVC, let toVC = toVC {
             // Replace existing view controller with new view controller
+            addChildViewController(toVC)
             toVC.willMoveToParentViewController(self)
             fromVC.willMoveToParentViewController(nil)
             fromVC.view.removeFromSuperview()
             fromVC.removeFromParentViewController()
             fromVC.didMoveToParentViewController(nil)
-            addChildViewController(toVC)
             setupContainer(viewContainer, withViewController: toVC)
             toVC.didMoveToParentViewController(self)
             return true
                 
         } else if fromVC == nil, let toVC = toVC {
                 // add new view controller
-                toVC.willMoveToParentViewController(self)
                 addChildViewController(toVC)
+                toVC.willMoveToParentViewController(self)
                 setupContainer(viewContainer, withViewController: toVC)
                 toVC.didMoveToParentViewController(self)
                 return true
@@ -46,8 +46,8 @@ extension UIViewController {
                 // remove existing view controller
                 fromVC.willMoveToParentViewController(nil)
                 fromVC.view.removeFromSuperview()
-                fromVC.removeFromParentViewController()
                 fromVC.didMoveToParentViewController(nil)
+                fromVC.removeFromParentViewController()
                 return true
         }
         
@@ -56,7 +56,7 @@ extension UIViewController {
     
     func replaceFromViewController(fromVC: UIViewController?, toViewController toVC: UIViewController?, inContainer viewContainer: UIView, duration animationDuration: NSTimeInterval, options animationOptions: UIViewAnimationOptions, completion completionBlock: ((Bool) -> Void)?) {
         
-        let isAnimated = animationDuration > 0 && self.childViewControllers.count < 0
+        let isAnimated = animationDuration > 0 && self.childViewControllers.count > 0
         let completion: (Bool) -> (Void) = { isFinished in
             if let completionBlock = completionBlock {
                 completionBlock(isFinished)
@@ -65,13 +65,13 @@ extension UIViewController {
         
         if fromVC != toVC && isAnimated, let fromVC = fromVC, let toVC = toVC {
             // Animated transition between view controllers
+            self.addChildViewController(toVC)
             toVC.willMoveToParentViewController(self)
             fromVC.willMoveToParentViewController(nil)
             transitionFromViewController(fromVC, toViewController: toVC, duration: animationDuration, options: animationOptions, animations: nil, completion: { isFinished in
                 fromVC.view.removeFromSuperview()
-                fromVC.removeFromParentViewController()
                 fromVC.didMoveToParentViewController(nil)
-                self.addChildViewController(toVC)
+                fromVC.removeFromParentViewController()
                 self.setupContainer(viewContainer, withViewController: toVC)
                 toVC.didMoveToParentViewController(self)
                 completion(isFinished)
