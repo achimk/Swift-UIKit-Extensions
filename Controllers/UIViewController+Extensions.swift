@@ -1,6 +1,5 @@
 //
 //  UIViewController+Extensions.swift
-//  ViewControllers
 //
 //  Created by Joachim Kret on 05.10.2015.
 //  Copyright © 2015 Joachim Kret. All rights reserved.

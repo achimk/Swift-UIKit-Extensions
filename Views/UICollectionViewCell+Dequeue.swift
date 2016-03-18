@@ -1,6 +1,5 @@
 //
 //  UICollectionViewCell+Dequeue.swift
-//  Goalv8
 //
 //  Created by Joachim Kret on 24/09/15.
 //  Copyright © 2015 Perform. All rights reserved.

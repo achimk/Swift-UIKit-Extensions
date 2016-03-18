@@ -1,8 +1,7 @@
 //
 //  Array+Subscript.swift
-//  lastfm
 //
-//  Created by Joachim on 18/03/16.
+//  Created by Joachim Kret on 18/03/16.
 //  Copyright © 2016 Joachim Kret. All rights reserved.
 //
 

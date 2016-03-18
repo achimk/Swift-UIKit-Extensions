@@ -1,6 +1,5 @@
 //
 //  UISplitViewController+Extensions.swift
-//  ViewControllers
 //
 //  Created by Joachim Kret on 06/10/15.
 //  Copyright © 2015 Joachim Kret. All rights reserved.
