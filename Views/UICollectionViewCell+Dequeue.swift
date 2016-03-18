@@ -9,7 +9,6 @@
 import UIKit
 
 extension UICollectionViewCell {
-    
     class var identifier: String {
         return NSStringFromClass(self)
     }
@@ -18,7 +17,7 @@ extension UICollectionViewCell {
         return nil
     }
     
-    static func registerCell(collectionView : UICollectionView) {
+    static func register(collectionView : UICollectionView) {
         if let cellNibName = nibName {
             let nib = UINib(nibName: cellNibName, bundle: NSBundle.mainBundle())
             collectionView.registerNib(nib, forCellWithReuseIdentifier: identifier)

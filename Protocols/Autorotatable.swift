@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum Autorotation: UInt {
-    case Container = 1
-    case ContainerAndTopChildren = 2
-    case ContainerAndAllChildren = 3
+enum Autorotation: Int {
+    case Container
+    case ContainerAndTopChildren
+    case ContainerAndAllChildren
 }
 
 protocol Autorotatable {
-    var autorotation: Autorotation {get set}
+    var autorotation: Autorotation { get set }
 }

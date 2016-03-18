@@ -11,7 +11,6 @@ import UIKit
 // MARK: Containment Methods
 
 extension UIViewController {
-
     func addViewController(viewController: UIViewController, toContainer viewContainer: UIView) -> Bool {
         return replaceFromViewController(nil, toViewController: viewController, inContainer: viewContainer)
     }
@@ -88,7 +87,6 @@ extension UIViewController {
 // MARK: Private Methods
 
 extension UIViewController {
-    
     private func setupContainer(viewContainer: UIView, withViewController viewController: UIViewController) {
         viewController.view.translatesAutoresizingMaskIntoConstraints = true
         viewController.view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]

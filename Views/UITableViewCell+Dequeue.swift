@@ -9,7 +9,6 @@
 import UIKit
 
 extension UITableViewCell {
-    
     class var identifier: String {
         return NSStringFromClass(self)
     }
@@ -18,7 +17,7 @@ extension UITableViewCell {
         return nil
     }
     
-    static func registerCell(tableView: UITableView) {
+    static func register(tableView: UITableView) {
         if let cellNibName = nibName {
             let nib = UINib(nibName: cellNibName, bundle: NSBundle.mainBundle())
             tableView.registerNib(nib, forCellReuseIdentifier: identifier)

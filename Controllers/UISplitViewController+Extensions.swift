@@ -32,7 +32,7 @@ extension UISplitViewController: Autorotatable {
     
     var autorotation: Autorotation {
         get {
-            if let autorotationMode = objc_getAssociatedObject(self, &Static.AutorotationMode) as? UInt {
+            if let autorotationMode = objc_getAssociatedObject(self, &Static.AutorotationMode) as? Int {
                 return Autorotation(rawValue: autorotationMode)!
             } else {
                 return Autorotation.Container
@@ -40,7 +40,7 @@ extension UISplitViewController: Autorotatable {
         }
         
         set {
-            objc_setAssociatedObject(self, &Static.AutorotationMode, newValue.rawValue as UInt?, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &Static.AutorotationMode, newValue.rawValue as Int?, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
